@@ -1,7 +1,4 @@
-<!-- NO - aggiungere animazione comparsa dettagli della carta
-     SI - aggiungere form dati utente
-     SI - estendere a tutte le carte
-     provare ad importare testo da altro file-->
+<!-- provare ad importare testo da altro file-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +11,13 @@
 
 
     <script>
+
+
         $(document).ready(function (){
+
             var delay = 700 //delay in ms
+
+
             ///////////BTN CLOSE///////////////
             $(".btn__close").click(function (){
                 $(".details").css('visibility', 'hidden')
@@ -25,106 +27,172 @@
 
                 $(".card__side--front-1").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-1").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
-                    $(".card--1").css('grid-row', '1 / 2')}, delay)
+
+
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
+                        $(".card--1").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--2").css('grid-column', '1 / 2')
+                        $(".card--2").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--3").css('grid-column', '1 / 2')
+                        $(".card--3").css('grid-row', '4 / 5')}, delay)
+                    setTimeout(function(){ $(".card--4").css('grid-column', '1 / 2')
+                        $(".card--4").css('grid-row', '5 / 6')}, delay)
+                    setTimeout(function(){ $(".card--5").css('grid-column', '1 / 2')
+                        $(".card--5").css('grid-row', '6 / 7')}, delay)
+                    setTimeout(function(){ $(".card--6").css('grid-column', '1 / 2')
+                        $(".card--6").css('grid-row', '7 / 8')}, delay)
+                    setTimeout(function(){ $(".card--7").css('grid-column', '1 / 2')
+                        $(".card--7").css('grid-row', '8 / 9')}, delay)
+
+                    setTimeout(function(){ $(".card--8").css('grid-column', '2 / 3')
+                        $(".card--8").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--9").css('grid-column', '2 / 3')
+                        $(".card--9").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--10").css('grid-column', '2 / 3')
+                        $(".card--10").css('grid-row', '4 / 5')}, delay)
+                    setTimeout(function(){ $(".card--11").css('grid-column', '2 / 3')
+                        $(".card--11").css('grid-row', '5 / 6')}, delay)
+                    setTimeout(function(){ $(".card--12").css('grid-column', '2 / 3')
+                        $(".card--12").css('grid-row', '6 / 7')}, delay)
+                    setTimeout(function(){ $(".card--13").css('grid-column', '2 / 3')
+                        $(".card--13").css('grid-row', '7 / 8')}, delay)
+                    setTimeout(function(){ $(".card--14").css('grid-column', '2 / 3')
+                        $(".card--14").css('grid-row', '8 / 9')}, delay)
+
+                    setTimeout(function(){ $(".card--15").css('grid-column', '3 / 4')
+                        $(".card--15").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--16").css('grid-column', '3 / 4')
+                        $(".card--16").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--17").css('grid-column', '3 / 4')
+                        $(".card--17").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--18").css('grid-column', '3 / 4')
+                        $(".card--18").css('grid-row', '4 / 5')}, delay)
+                    setTimeout(function(){ $(".card--19").css('grid-column', '3 / 4')
+                        $(".card--19").css('grid-row', '5 / 6')}, delay)
+                    setTimeout(function(){ $(".card--20").css('grid-column', '3 / 4')
+                        $(".card--20").css('grid-row', '6 / 7')}, delay)
+                    setTimeout(function(){ $(".card--21").css('grid-column', '3 / 4')
+                        $(".card--21").css('grid-row', '7 / 8')}, delay)
+                    setTimeout(function(){ $(".card--22").css('grid-column', '3 / 4')
+                        $(".card--22").css('grid-row', '8 / 9')}, delay)
+
+
+                } else {
+                    setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
+                        $(".card--1").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--2").css('grid-column', '3 / 4')
+                        $(".card--2").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--3").css('grid-column', '4 / 5')
+                        $(".card--3").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--4").css('grid-column', '5 / 6')
+                        $(".card--4").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--5").css('grid-column', '6 / 7')
+                        $(".card--5").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--6").css('grid-column', '7 / 8')
+                        $(".card--6").css('grid-row', '1 / 2')}, delay)
+                    setTimeout(function(){ $(".card--7").css('grid-column', '8 / 9')
+                        $(".card--7").css('grid-row', '1 / 2')}, delay)
+
+                    setTimeout(function(){ $(".card--9").css('grid-column', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--10").css('grid-column', '4 / 5')}, delay)
+                    setTimeout(function(){ $(".card--11").css('grid-column', '5 / 6')}, delay)
+                    setTimeout(function(){ $(".card--12").css('grid-column', '6 / 7')}, delay)
+                    setTimeout(function(){ $(".card--13").css('grid-column', '7 / 8')}, delay)
+                    setTimeout(function(){ $(".card--14").css('grid-column', '8 / 9')}, delay)
+
+                    setTimeout(function(){ $(".card--15").css('grid-column', '1 / 2')
+                        $(".card--15").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--16").css('grid-column', '2 / 3')
+                        $(".card--16").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--17").css('grid-column', '3 / 4')
+                        $(".card--17").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--18").css('grid-column', '4 / 5')
+                        $(".card--18").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--19").css('grid-column', '5 / 6')
+                        $(".card--19").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--20").css('grid-column', '6 / 7')
+                        $(".card--20").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--21").css('grid-column', '7 / 8')
+                        $(".card--21").css('grid-row', '3 / 4')}, delay)
+                    setTimeout(function(){ $(".card--22").css('grid-column', '8 / 9')
+                        $(".card--22").css('grid-row', '3 / 4')}, delay)
+                }
+
 
                 $(".card__side--front-2").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-2").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--2").css('grid-column', '3 / 4')
-                    $(".card--2").css('grid-row', '1 / 2')}, delay)
 
                 $(".card__side--front-3").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-3").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--3").css('grid-column', '4 / 5')
-                    $(".card--3").css('grid-row', '1 / 2')}, delay)
 
                 $(".card__side--front-4").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-4").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--4").css('grid-column', '5 / 6')
-                    $(".card--4").css('grid-row', '1 / 2')}, delay)
 
                 $(".card__side--front-5").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-5").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--5").css('grid-column', '6 / 7')
-                    $(".card--5").css('grid-row', '1 / 2')}, delay)
 
                 $(".card__side--front-6").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-6").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--6").css('grid-column', '7 / 8')
-                    $(".card--6").css('grid-row', '1 / 2')}, delay)
 
                 $(".card__side--front-7").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-7").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--7").css('grid-column', '8 / 9')
-                    $(".card--7").css('grid-row', '1 / 2')}, delay)
+
 
                 $(".card__side--front-8").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-8").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--8").css('grid-column', '2 / 3')}, delay)
+
 
                 $(".card__side--front-9").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-9").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--9").css('grid-column', '3 / 4')}, delay)
+
 
                 $(".card__side--front-10").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-10").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--10").css('grid-column', '4 / 5')}, delay)
+
 
                 $(".card__side--front-11").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-11").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--11").css('grid-column', '5 / 6')}, delay)
+
 
                 $(".card__side--front-12").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-12").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--12").css('grid-column', '6 / 7')}, delay)
+
 
                 $(".card__side--front-13").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-13").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--13").css('grid-column', '7 / 8')}, delay)
+
 
                 $(".card__side--front-14").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-14").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--14").css('grid-column', '8 / 9')}, delay)
+
 
                 $(".card__side--front-15").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-15").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--15").css('grid-column', '1 / 2')
-                    $(".card--15").css('grid-row', '3 / 4')}, delay)
+
 
                 $(".card__side--front-16").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-16").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--16").css('grid-column', '2 / 3')
-                    $(".card--16").css('grid-row', '3 / 4')}, delay)
+
 
                 $(".card__side--front-17").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-17").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--17").css('grid-column', '3 / 4')
-                    $(".card--17").css('grid-row', '3 / 4')}, delay)
 
                 $(".card__side--front-18").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-18").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--18").css('grid-column', '4 / 5')
-                    $(".card--18").css('grid-row', '3 / 4')}, delay)
+
 
                 $(".card__side--front-19").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-19").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--19").css('grid-column', '5 / 6')
-                    $(".card--19").css('grid-row', '3 / 4')}, delay)
 
                 $(".card__side--front-20").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-20").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--20").css('grid-column', '6 / 7')
-                    $(".card--20").css('grid-row', '3 / 4')}, delay)
 
                 $(".card__side--front-21").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-21").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--21").css('grid-column', '7 / 8')
-                    $(".card--21").css('grid-row', '3 / 4')}, delay)
 
                 $(".card__side--front-22").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-22").css('transform', 'rotateY(180deg)')
-                setTimeout(function(){ $(".card--22").css('grid-column', '8 / 9')
-                    $(".card--22").css('grid-row', '3 / 4')}, delay)
             })
 
             /////////////////////////////////FIRST ROW////////////////////////////////////////

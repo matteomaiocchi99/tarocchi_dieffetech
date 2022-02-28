@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "node": "^17.4.0"
+  },
+  "name": "tarocchi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "node-bin-setup": "^1.1.0",
+    "node-sass": "^7.0.1"
+  },
+  "scripts": {
+    "compile:sass": "node-sass scss/main.scss css/style.css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

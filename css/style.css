@@ -1,7 +1,9 @@
 body {
-  padding: .5rem 2rem;
+  padding: 0;
   background-color: #df542f;
-  position: relative; }
+  position: relative;
+  height: 95vh;
+  width: 99vw; }
 
 html {
   box-sizing: border-box;
@@ -16,8 +18,8 @@ html {
   left: -1rem;
   width: 40%; }
 
-.img {
-  max-height: 100%; }
+img {
+  max-height: 32vh; }
 
 .container {
   background-color: #df542f;
@@ -25,25 +27,13 @@ html {
   height: 100vh;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(8, 1fr);
-  grid-row-gap: 4rem;
+  grid-row-gap: .5rem;
   grid-column-gap: .7rem; }
   @media only screen and (max-width: 48em) {
     .container {
       grid-template-rows: repeat(8, 40vh);
       grid-template-columns: repeat(3, 1fr);
       grid-row-gap: .5rem; } }
-  @media only screen and (max-height: 70em) and (min-width: 48.1em) {
-    .container {
-      grid-row-gap: 8rem; } }
-  @media only screen and (max-height: 50em) and (min-width: 48.1em) {
-    .container {
-      grid-row-gap: 10rem; } }
-  @media only screen and (max-height: 43em) and (min-width: 48.1em) {
-    .container {
-      grid-row-gap: 15rem; } }
-  @media only screen and (max-height: 36em) and (min-width: 48.1em) {
-    .container {
-      grid-row-gap: 20rem; } }
 
 .details {
   background-color: #df542f;

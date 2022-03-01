@@ -22,7 +22,6 @@ html {
   top: 10rem;
   left: -1rem;
   width: 40%;
-  z-index: 1;
 }
 
 .img {
@@ -38,22 +37,18 @@ html {
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(8, 1fr);
 
-
-
-
   grid-row-gap: .5rem;
   grid-column-gap: .7rem;
 
   @media only screen and (max-width: 48em) { //768px
-    grid-template-rows: repeat(8, 33vw);
+    grid-template-rows: repeat(8, 40vh);
     grid-template-columns: repeat(3, 1fr);
 
-    grid-row-gap: 7.3rem;
+    grid-row-gap: .5rem;
   }
 
   @media only screen and (max-width: 30em) {
     grid-row-gap: 4rem;
-
   }
 
 
@@ -69,10 +64,21 @@ html {
   visibility: hidden;
   font-size: 2rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 48em) {  //768px
+    grid-row: 2 / -1;
+    grid-column: 1 / -1;
+
+    padding: 3rem 3rem;
+  }
+
 }
 
 .card {
-  z-index: 1;
+  //z-index: 1;
 
   //FIRST ROW--------------------------
   &--1 {
@@ -303,7 +309,7 @@ html {
     width: 100%;
     backface-visibility: hidden;
     border-radius: 3px;
-    overflow: hidden;
+    //overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(1,1,1, .15);
 
     &--front {
@@ -313,32 +319,34 @@ html {
     }
 
     &--back {
-      background-color: white;
       transform: rotateY(180deg);
-      background-color: white;
     }
   }
 }
 
 .form {
+  padding-bottom: 5rem;
+  background-color: whitesmoke; //rgba($bg-color, .1);
+  border-radius: 10px;
+
 
   &__fields {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     padding-top: 4rem;
     padding-bottom: 2rem;
-    
-    @media only screen and (max-width: 64em) {  //1200px
-      flex-direction: column;
-    }
+  }
+  &__group {
+    padding-top: 1rem;
+    overflow: hidden;
   }
 
   &__input {
     font-size: 1.5rem;
     font-family: inherit;
-    color: inherit;
-    padding: 1.5rem .3rem;
+    color: black;
+    padding: 2rem 0;
     border-radius: 2px;
     background-color: rgba(white, .5);
     border: none;
@@ -347,7 +355,11 @@ html {
     display: block;
     transition: all .3s;
 
-    @media only screen and (max-width: 64em) {  //1200px
+    &:placeholder-shown {
+      padding-left: 1%;
+    }
+
+    @media only screen and (max-width: 69em) {  //1100px
       margin-bottom: 1rem;
     }
 
@@ -385,6 +397,11 @@ html {
     transition: all .2s;
     position: relative;
     font-size: 1.6rem;
+    width: 15rem;
+    height: 5rem;
+    margin-top: 2rem;
+    background-color: $bg-color;
+    color: white;
 
     //Change for the <button> element
     border: none;
@@ -415,6 +432,19 @@ html {
     justify-self: center;
     align-self: end;
     visibility: hidden;
+    background-color: white;
+    color: black;
+
+    @media only screen and (max-width: 48em) {  //768px
+      grid-row: 1 / 2;
+      grid-column: 3 / 4;
+      align-self: start;
+      justify-self: end;
+      font-size: 1rem;
+
+      width: 10vw;
+      min-width: min-content;
+    }
   }
 }
 

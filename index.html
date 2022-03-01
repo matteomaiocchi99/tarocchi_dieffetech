@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tarocchi</title>
+    <title>Happy Cards</title>
 
     <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -24,10 +24,6 @@
                 $(".card__side--front").css('visibility', 'visible')
                 $(".text").css('visibility', 'hidden')
                 $(".btn__close").css('visibility', 'hidden')
-
-                $(".card__side--front-1").css('transform', 'rotateY(0deg)')
-                $(".card__side--back-1").css('transform', 'rotateY(180deg)')
-
 
                 if (window.innerWidth<768){
                     setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
@@ -119,80 +115,60 @@
                         $(".card--22").css('grid-row', '3 / 4')}, delay)
                 }
 
-
+                $(".card__side--front-1").css('transform', 'rotateY(0deg)')
+                $(".card__side--back-1").css('transform', 'rotateY(180deg)')
                 $(".card__side--front-2").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-2").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-3").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-3").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-4").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-4").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-5").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-5").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-6").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-6").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-7").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-7").css('transform', 'rotateY(180deg)')
 
-
                 $(".card__side--front-8").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-8").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-9").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-9").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-10").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-10").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-11").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-11").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-12").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-12").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-13").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-13").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-14").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-14").css('transform', 'rotateY(180deg)')
 
-
                 $(".card__side--front-15").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-15").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-16").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-16").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-17").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-17").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-18").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-18").css('transform', 'rotateY(180deg)')
-
-
                 $(".card__side--front-19").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-19").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-20").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-20").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-21").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-21").css('transform', 'rotateY(180deg)')
-
                 $(".card__side--front-22").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-22").css('transform', 'rotateY(180deg)')
+            })
+
+            /////////////////////////////////FOR ALL////////////////////////////////////////
+
+            $(".card__side--front").click(function (){
+                $(".card__side--front").css('visibility', 'hidden')
+                setTimeout(function(){$(".details").css('visibility', 'visible')
+                    $(".btn__close").css('visibility', 'visible')}, delay)
             })
 
             /////////////////////////////////FIRST ROW////////////////////////////////////////
@@ -201,59 +177,68 @@
             $(".card__side--front-1").click(function (){
                 $(".card__side--front-1").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-1").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
-                    $(".card--1").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                //$(".card__side--back-1").css('width', '130%')
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
+                        $(".card--1").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
+                        $(".card--1").css('grid-row', '2 / 3')}, delay)
+                }
             })
 
             //////////////
             $(".card__side--front-2").click(function (){
                 $(".card__side--front-2").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-2").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--2").css('grid-column', '1 / 2')
-                    $(".card--2").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--2").css('grid-column', '2 / 3')
+                        $(".card--2").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--2").css('grid-column', '1 / 2')
+                        $(".card--2").css('grid-row', '2 / 3')}, delay)
+                }
             })
-
             //////////////
             $(".card__side--front-3").click(function (){
                 $(".card__side--front-3").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-3").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--3").css('grid-column', '1 / 2')
-                    $(".card--3").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--3").css('grid-column', '2 / 3')
+                        $(".card--3").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--3").css('grid-column', '1 / 2')
+                        $(".card--3").css('grid-row', '2 / 3')}, delay)
+                }
             })
-
             //////////////
             $(".card__side--front-4").click(function (){
                 $(".card__side--front-4").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-4").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--4").css('grid-column', '1 / 2')
-                    $(".card--4").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--4").css('grid-column', '2 / 3')
+                        $(".card--4").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--4").css('grid-column', '1 / 2')
+                        $(".card--4").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-5").click(function (){
                 $(".card__side--front-5").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-5").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--5").css('grid-column', '1 / 2')
-                    $(".card--5").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--5").css('grid-column', '2 / 3')
+                        $(".card--5").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--5").css('grid-column', '1 / 2')
+                        $(".card--5").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-6").click(function (){
@@ -661,9 +646,9 @@
                 <div class="form__group">
                 <input type="email" class="form__input" placeholder="Email address" id="email" required>
             </div>
-                <div class="form__group">
-                    <input type="text" class="form__input" placeholder="Note" id="note" required>
-                </div>
+                <text class="form__group">
+                    <textarea class="form__input" placeholder="Note" id="note" required></textarea>
+                </text>
 
             </div>
             <div class="form__group form__btn">

@@ -1,4 +1,5 @@
-<!-- provare ad importare testo da altro file-->
+<!-- distanziare carte
+     ingrandire carta senza overflow-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@
 
         $(document).ready(function (){
 
-            var delay = 700 //delay in ms
+            var delay = 800 //delay in ms
 
 
             ///////////BTN CLOSE///////////////
@@ -75,6 +76,8 @@
 
 
                 } else {
+                    $(".container").css('grid-template-columns', 'repeat(8, 1fr)')
+
                     setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
                         $(".card--1").css('grid-row', '1 / 2')}, delay)
                     setTimeout(function(){ $(".card--2").css('grid-column', '3 / 4')
@@ -166,10 +169,17 @@
             /////////////////////////////////FOR ALL////////////////////////////////////////
 
             $(".card__side--front").click(function (){
+
                 $(".card__side--front").css('visibility', 'hidden')
                 setTimeout(function(){$(".details").css('visibility', 'visible')
                     $(".btn__close").css('visibility', 'visible')}, delay)
+                if (window.innerWidth>768){
+                    setTimeout(function(){
+                        $(".container").css('grid-template-columns', '1fr 4fr')}, delay)
+                }
             })
+
+
 
             /////////////////////////////////FIRST ROW////////////////////////////////////////
 

@@ -25,16 +25,25 @@ html {
   height: 100vh;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(8, 1fr);
-  grid-row-gap: .5rem;
+  grid-row-gap: 4rem;
   grid-column-gap: .7rem; }
   @media only screen and (max-width: 48em) {
     .container {
       grid-template-rows: repeat(8, 40vh);
       grid-template-columns: repeat(3, 1fr);
       grid-row-gap: .5rem; } }
-  @media only screen and (max-width: 30em) {
+  @media only screen and (max-height: 70em) and (min-width: 48.1em) {
     .container {
-      grid-row-gap: 4rem; } }
+      grid-row-gap: 8rem; } }
+  @media only screen and (max-height: 50em) and (min-width: 48.1em) {
+    .container {
+      grid-row-gap: 10rem; } }
+  @media only screen and (max-height: 43em) and (min-width: 48.1em) {
+    .container {
+      grid-row-gap: 15rem; } }
+  @media only screen and (max-height: 36em) and (min-width: 48.1em) {
+    .container {
+      grid-row-gap: 20rem; } }
 
 .details {
   background-color: #df542f;
@@ -212,7 +221,6 @@ html {
   .card__side {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     transition: all .8s ease;
     position: absolute;
     top: 0;
@@ -222,7 +230,6 @@ html {
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba(1, 1, 1, 0.15); }
     .card__side--front {
-      background-image: url("img/3105_grande.jpeg");
       cursor: pointer; }
     .card__side--back {
       transform: rotateY(180deg);
@@ -230,6 +237,7 @@ html {
 
 .form {
   padding-bottom: 5rem;
+  margin-top: 5rem;
   background-color: whitesmoke;
   border-radius: 10px; }
   .form__fields {

@@ -1,5 +1,4 @@
-<!-- distanziare carte
-     ingrandire carta senza overflow-->
+<!-- distanziare carte -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +20,7 @@
 
             ///////////BTN CLOSE///////////////
             $(".btn__close").click(function (){
+                $(".details").css('z-index', '-1')
                 $(".details").css('visibility', 'hidden')
                 $(".card__side--front").css('visibility', 'visible')
                 $(".text").css('visibility', 'hidden')
@@ -93,12 +93,20 @@
                     setTimeout(function(){ $(".card--7").css('grid-column', '8 / 9')
                         $(".card--7").css('grid-row', '1 / 2')}, delay)
 
-                    setTimeout(function(){ $(".card--9").css('grid-column', '3 / 4')}, delay)
-                    setTimeout(function(){ $(".card--10").css('grid-column', '4 / 5')}, delay)
-                    setTimeout(function(){ $(".card--11").css('grid-column', '5 / 6')}, delay)
-                    setTimeout(function(){ $(".card--12").css('grid-column', '6 / 7')}, delay)
-                    setTimeout(function(){ $(".card--13").css('grid-column', '7 / 8')}, delay)
-                    setTimeout(function(){ $(".card--14").css('grid-column', '8 / 9')}, delay)
+                    setTimeout(function(){ $(".card--8").css('grid-column', '2 / 3')
+                        $(".card--8").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--9").css('grid-column', '3 / 4')
+                        $(".card--9").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--10").css('grid-column', '4 / 5')
+                        $(".card--10").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--11").css('grid-column', '5 / 6')
+                        $(".card--11").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--12").css('grid-column', '6 / 7')
+                        $(".card--12").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--13").css('grid-column', '7 / 8')
+                        $(".card--13").css('grid-row', '2 / 3')}, delay)
+                    setTimeout(function(){ $(".card--14").css('grid-column', '8 / 9')
+                        $(".card--14").css('grid-row', '2 / 3')}, delay)
 
                     setTimeout(function(){ $(".card--15").css('grid-column', '1 / 2')
                         $(".card--15").css('grid-row', '3 / 4')}, delay)
@@ -171,6 +179,7 @@
             $(".card__side--front").click(function (){
 
                 $(".card__side--front").css('visibility', 'hidden')
+                $(".details").css('z-index', '11111')
                 setTimeout(function(){$(".details").css('visibility', 'visible')
                     $(".btn__close").css('visibility', 'visible')}, delay)
                 if (window.innerWidth>768){
@@ -254,23 +263,27 @@
             $(".card__side--front-6").click(function (){
                 $(".card__side--front-6").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-6").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--6").css('grid-column', '1 / 2')
-                    $(".card--6").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--6").css('grid-column', '2 / 3')
+                        $(".card--6").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--6").css('grid-column', '1 / 2')
+                        $(".card--6").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-7").click(function (){
                 $(".card__side--front-7").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-7").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--7").css('grid-column', '1 / 2')
-                    $(".card--7").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--7").css('grid-column', '2 / 3')
+                        $(".card--7").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--7").css('grid-column', '1 / 2')
+                        $(".card--7").css('grid-row', '2 / 3')}, delay)
+                }
             })
 
             /////////////////////////////////SECOND ROW////////////////////////////////////////
@@ -278,71 +291,92 @@
             $(".card__side--front-8").click(function (){
                 $(".card__side--front-8").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-8").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--8").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--8").css('grid-column', '2 / 3')
+                        $(".card--8").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--8").css('grid-column', '1 / 2')
+                        $(".card--8").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-9").click(function (){
                 $(".card__side--front-9").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-9").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--9").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--9").css('grid-column', '2 / 3')
+                        $(".card--9").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--9").css('grid-column', '1 / 2')
+                        $(".card--9").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-10").click(function (){
                 $(".card__side--front-10").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-10").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--10").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--10").css('grid-column', '2 / 3')
+                        $(".card--10").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--10").css('grid-column', '1 / 2')
+                        $(".card--10").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-11").click(function (){
                 $(".card__side--front-11").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-11").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--11").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--11").css('grid-column', '2 / 3')
+                        $(".card--11").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--11").css('grid-column', '1 / 2')
+                        $(".card--11").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-12").click(function (){
                 $(".card__side--front-12").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-12").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--12").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--12").css('grid-column', '2 / 3')
+                        $(".card--12").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--12").css('grid-column', '1 / 2')
+                        $(".card--12").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-13").click(function (){
                 $(".card__side--front-13").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-13").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--13").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--13").css('grid-column', '2 / 3')
+                        $(".card--13").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--13").css('grid-column', '1 / 2')
+                        $(".card--13").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-14").click(function (){
                 $(".card__side--front-14").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-14").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){ $(".card--14").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--14").css('grid-column', '2 / 3')
+                        $(".card--14").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--14").css('grid-column', '1 / 2')
+                        $(".card--14").css('grid-row', '2 / 3')}, delay)
+                }
             })
 
             /////////////////////////////////THIRD ROW////////////////////////////////////////
@@ -350,90 +384,109 @@
             $(".card__side--front-15").click(function (){
                 $(".card__side--front-15").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-15").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--15").css('grid-row', '2 / 3')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--15").css('grid-column', '2 / 3')
+                        $(".card--15").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--15").css('grid-column', '1 / 2')
+                        $(".card--15").css('grid-row', '2 / 3')}, delay)
+                }
             })
 
             //////////////
             $(".card__side--front-16").click(function (){
                 $(".card__side--front-16").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-16").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--16").css('grid-row', '2 / 3')
-                $(".card--16").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--16").css('grid-column', '2 / 3')
+                        $(".card--16").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--16").css('grid-column', '1 / 2')
+                        $(".card--16").css('grid-row', '2 / 3')}, delay)
+                }
             })
 
             //////////////
             $(".card__side--front-17").click(function (){
                 $(".card__side--front-17").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-17").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--17").css('grid-row', '2 / 3')
-                    $(".card--17").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--17").css('grid-column', '2 / 3')
+                        $(".card--17").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--17").css('grid-column', '1 / 2')
+                        $(".card--17").css('grid-row', '2 / 3')}, delay)
+                }
             })
 
             //////////////
             $(".card__side--front-18").click(function (){
                 $(".card__side--front-18").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-18").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--18").css('grid-row', '2 / 3')
-                    $(".card--18").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--18").css('grid-column', '2 / 3')
+                        $(".card--18").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--18").css('grid-column', '1 / 2')
+                        $(".card--18").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-19").click(function (){
                 $(".card__side--front-19").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-19").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--19").css('grid-row', '2 / 3')
-                    $(".card--19").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--19").css('grid-column', '2 / 3')
+                        $(".card--19").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--19").css('grid-column', '1 / 2')
+                        $(".card--19").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-20").click(function (){
                 $(".card__side--front-20").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-20").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--20").css('grid-row', '2 / 3')
-                    $(".card--20").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--20").css('grid-column', '2 / 3')
+                        $(".card--20").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--20").css('grid-column', '1 / 2')
+                        $(".card--20").css('grid-row', '2 / 3')}, delay)
+                }
             })
             //////////////
             $(".card__side--front-21").click(function (){
                 $(".card__side--front-21").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-21").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--21").css('grid-row', '2 / 3')
-                    $(".card--21").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--21").css('grid-column', '2 / 3')
+                        $(".card--21").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function () {
+                        $(".card--21").css('grid-column', '1 / 2')
+                        $(".card--21").css('grid-row', '2 / 3')
+                    }, delay)
+                }
             })
             $(".card__side--front-22").click(function (){
                 $(".card__side--front-22").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-22").css('transform', 'rotateY(0deg)')
-                $(".card__side--front").css('visibility', 'hidden')
-                setTimeout(function(){$(".card--22").css('grid-row', '2 / 3')
-                    $(".card--22").css('grid-column', '1 / 2')
-                    $(".details").css('visibility', 'visible')
-                    $(".btn__close").css('visibility', 'visible')
-                    $(".text-1").css('visibility', 'visible')}, delay)
+                setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
+                if (window.innerWidth<768){
+                    setTimeout(function(){ $(".card--22").css('grid-column', '2 / 3')
+                        $(".card--22").css('grid-row', '1 / 2')}, delay)
+                } else {
+                    setTimeout(function(){ $(".card--22").css('grid-column', '1 / 2')
+                        $(".card--22").css('grid-row', '2 / 3')}, delay)
+                }
             })
         });
     </script>

@@ -178,12 +178,13 @@
             $(".card__side--front").click(function (){
                 $(".card__side--front").css('visibility', 'hidden')
                 $(".details").css('z-index', '11111')
+                $(".card__side--front").css('z-index', '11110')
                 setTimeout(function(){$(".details").css('visibility', 'visible')
                     $(".btn__close").css('visibility', 'visible')}, delay)
                 if (window.innerWidth>768){
                     setTimeout(function(){
                         $(".container").css('grid-template-columns', '1fr 4fr')
-                        $(".img").css('max-height', '1000vh')}, delay)
+                        $(".img").css('max-height', '50vh')}, delay)
                 }
             })
 
@@ -195,7 +196,6 @@
             $(".card__side--front-1").click(function (){
                 $(".card__side--front-1").css('transform', 'rotateY(-180deg)')
                 $(".card__side--back-1").css('transform', 'rotateY(0deg)')
-                //$(".card__side--back-1").css('width', '130%')
                 setTimeout(function(){$(".text-1").css('visibility', 'visible')}, delay)
                 if (window.innerWidth<768){
                     setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
@@ -203,6 +203,7 @@
                 } else {
                     setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
                         $(".card--1").css('grid-row', '2 / 3')}, delay)
+
                 }
             })
 

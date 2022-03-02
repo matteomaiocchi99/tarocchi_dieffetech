@@ -28,7 +28,7 @@ html {
 }
 
 
-img {
+.img {
   max-height: 32vh;
 }
 
@@ -307,12 +307,12 @@ img {
     left: 0;
     width: 100%;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     border-radius: 3px;
-    //overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(1,1,1, .15);
 
+
     &--front {
-      //background-color: white;
       cursor: pointer;
     }
 

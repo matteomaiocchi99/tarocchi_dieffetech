@@ -15,10 +15,10 @@
 
             var delay = 800 //delay in ms
 
+            var n = 1;
 
             ///////////BTN CLOSE///////////////
             $(".btn__close").click(function (){
-                $(".img").css('max-height', '32vh')
                 $(".details").css('z-index', '-1')
                 $(".details").css('visibility', 'hidden')
                 $(".card__side--front").css('visibility', 'visible')
@@ -26,6 +26,8 @@
                 $(".btn__close").css('visibility', 'hidden')
 
                 if (window.innerWidth<768){
+                    $(".img").css('max-height', '40vh')
+
                     setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
                         $(".card--1").css('grid-row', '2 / 3')}, delay)
                     setTimeout(function(){ $(".card--2").css('grid-column', '1 / 2')
@@ -75,7 +77,9 @@
 
 
                 } else {
+                    $(".body").css('overflow','hidden')
                     $(".container").css('grid-template-columns', 'repeat(8, 1fr)')
+                    $(".img").css('max-height', '32vh')
 
                     setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
                         $(".card--1").css('grid-row', '1 / 2')}, delay)
@@ -125,7 +129,12 @@
                         $(".card--22").css('grid-row', '3 / 4')}, delay)
                 }
 
-                $(".card__side--front-1").css('transform', 'rotateY(0deg)')
+                for (n = 1; n<=22; n++) {
+                    $(".card__side--front-"+n).css('transform', 'rotateY(0deg)')
+                    $(".card__side--back-"+n).css('transform', 'rotateY(180deg)')
+                }
+
+                /*$(".card__side--front-1").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-1").css('transform', 'rotateY(180deg)')
                 $(".card__side--front-2").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-2").css('transform', 'rotateY(180deg)')
@@ -170,7 +179,7 @@
                 $(".card__side--front-21").css('transform', 'rotateY(0deg)')
                 $(".card__side--back-21").css('transform', 'rotateY(180deg)')
                 $(".card__side--front-22").css('transform', 'rotateY(0deg)')
-                $(".card__side--back-22").css('transform', 'rotateY(180deg)')
+                $(".card__side--back-22").css('transform', 'rotateY(180deg)')*/
             })
 
             /////////////////////////////////FOR ALL////////////////////////////////////////
@@ -182,12 +191,12 @@
                 setTimeout(function(){$(".details").css('visibility', 'visible')
                     $(".btn__close").css('visibility', 'visible')}, delay)
                 if (window.innerWidth>768){
+                    $(".body").css('overflow','scroll')
                     setTimeout(function(){
                         $(".container").css('grid-template-columns', '1fr 4fr')
                         $(".img").css('max-height', '50vh')}, delay)
                 }
             })
-
 
 
             /////////////////////////////////FIRST ROW////////////////////////////////////////
@@ -492,7 +501,7 @@
     </script>
 
 </head>
-<body>
+<body class="body">
 
 <div class="bg">
     <img src="img/img_sfondo.png" alt=" " class="bg">

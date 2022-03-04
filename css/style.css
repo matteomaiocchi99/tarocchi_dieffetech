@@ -2,8 +2,12 @@ body {
   padding: 0;
   background-color: #df542f;
   position: relative;
-  height: 95vh;
-  width: 99vw; }
+  width: 99vw;
+  overflow: hidden;
+  overflow-x: hidden; }
+  @media only screen and (max-width: 48em) {
+    body {
+      overflow: scroll; } }
 
 html {
   box-sizing: border-box;
@@ -19,15 +23,20 @@ html {
   width: 40%; }
 
 .img {
-  max-height: 32vh; }
+  max-height: 30vh;
+  max-width: 29vw; }
+  @media only screen and (max-width: 48em) {
+    .img {
+      max-height: 40vh; } }
 
 .container {
   background-color: #df542f;
   display: grid;
   height: 100vh;
+  width: 99vw;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(8, 1fr);
-  grid-row-gap: .5rem;
+  grid-row-gap: .1rem;
   grid-column-gap: .7rem; }
   @media only screen and (max-width: 48em) {
     .container {
@@ -229,12 +238,13 @@ html {
 .form {
   padding-bottom: 5rem;
   margin-top: 5rem;
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 10px; }
   .form__fields {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding: 0 1.5rem;
     padding-top: 4rem;
     padding-bottom: 2rem; }
   .form__group {
@@ -244,25 +254,23 @@ html {
     font-size: 1.5rem;
     font-family: inherit;
     color: black;
-    padding: 2rem 0;
+    padding: 2rem;
     border-radius: 2px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: white;
     border: none;
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid #EEE;
     width: 100%;
     display: block;
     transition: all .3s; }
-    .form__input:placeholder-shown {
-      padding-left: 1%; }
     @media only screen and (max-width: 69em) {
       .form__input {
         margin-bottom: 1rem; } }
     .form__input:focus {
       outline: none;
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-      border-bottom: 3px solid green; }
+      border-bottom: 2px solid green; }
     .form__input:focus:invalid {
-      border-bottom: 3px solid red; }
+      border-bottom: 2px solid red; }
   .form__label {
     display: none; }
   .form__btn {
@@ -312,6 +320,7 @@ html {
       grid-column: 3 / 4;
       align-self: start;
       justify-self: end;
+      margin-right: 2rem;
       font-size: 1rem;
       width: 10vw;
       min-width: min-content; } }

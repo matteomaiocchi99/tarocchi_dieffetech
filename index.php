@@ -272,6 +272,7 @@ alle nostre Happy <span class=SpellE>Cards</span> cosa ti sussurra l’universo<
             $(".text").css('display', 'none')
             $(".btn__close").css('visibility', 'hidden')
             setTimeout(function(){ $(".card__shift").css('transform', 'translateX(-50%)')}, 1)
+            $(".button-open").css('display', 'inline-block')
 
 
             if (window.innerWidth<768){
@@ -387,6 +388,7 @@ alle nostre Happy <span class=SpellE>Cards</span> cosa ti sussurra l’universo<
         /////////////////////////////////FOR ALL////////////////////////////////////////
 
         $(".card__side--front").click(function (){
+            $(".button-open").css('display', 'none')
             $(".card__side--front").css('visibility', 'hidden')
             $(".details").css('z-index', '11111')
             $(".card__side--front").css('z-index', '11110')

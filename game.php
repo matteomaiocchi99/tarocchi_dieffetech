@@ -14,7 +14,7 @@
     $random_number_array = array_slice($random_number_array ,0,22);
 
 
-    print_r($random_number_array);
+    //print_r($random_number_array);
 
     $text_array = [
         0 => 'Qual è la mia strada?- Come posso canalizzare la mia energia?- Verso quale cambiamento è bene che mi orienti?',

@@ -1,2 +1,11 @@
 /package-lock.json
 /node_modules/*
+
+node_modules
+package.json
+package-lock.json
+.game.php.swp
+sass
+.idea
+.vscode
+scss

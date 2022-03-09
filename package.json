@@ -2,16 +2,27 @@
   "devDependencies": {
     "node": "^17.4.0"
   },
+<<<<<<< HEAD
   "name": "tarocchi",
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
     "live-server": "^1.2.1",
+=======
+  "name": "happy",
+  "version": "1.0.0",
+  "main": "index.php",
+  "dependencies": {
+>>>>>>> a38ae8d (version 2 finita)
     "node-bin-setup": "^1.1.0",
     "node-sass": "^7.0.1"
   },
   "scripts": {
+<<<<<<< HEAD
     "compile:sass": "node-sass scss/main.scss css/style.css -w"
+=======
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+>>>>>>> a38ae8d (version 2 finita)
   },
   "author": "",
   "license": "ISC",

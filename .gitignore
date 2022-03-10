@@ -9,3 +9,5 @@ sass
 .idea
 .vscode
 scss
+composer.lock
+sender.php

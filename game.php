@@ -9,12 +9,56 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 
     <?php
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    require './vendor/autoload.php';
+
+    if (isset($_POST['email'])){
+
+        $mail = new PHPMailer();
+
+        $nome=$_POST['nome'];
+        $cognome=$_POST['cognome'];
+        $email=$_POST['email'];
+
+        //print_r($nome.' '.$cognome.' '.$email.' '.$note."<br>");
+
+
+        try {
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = "provaperinviomail@gmail.com";
+            $mail->Password   = 'matteo1999';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
+
+            $mail->setFrom("matteo.corrini@gmail.com", "Prova");
+            $mail->addAddress("matteo.maiocchi99@gmail.com");
+            $mail->SMTPDebug = false;
+            $mail->do_debug = 0;
+            $mail->isHTML(true);
+            $mail->Subject = 'Nuovo contatto da HappyCards';
+            $mail->Body    = "<b>$nome $cognome</b>, $email";
+
+            $mail->send();
+
+            echo "<script> alert('Messaggio inviato correttamente') </script>";
+
+        } catch (Exception $err) {
+            echo "Errore. Il messaggio non può essere inviato.<br> Mailer error:{$mail->ErrorInfo} <br>";
+        }
+    }
+
+
     $random_number_array = range(0, 21);
-    shuffle($random_number_array );
-    $random_number_array = array_slice($random_number_array ,0,22);
+    shuffle($random_number_array);
+    $random_number_array = array_slice($random_number_array, 0, 22);
 
-
-    //print_r($random_number_array);
+        //print_r($random_number_array);
 
     $text_array = [
         0 => 'Qual è la mia strada?- Come posso canalizzare la mia energia?- Verso quale cambiamento è bene che mi orienti?',
@@ -39,10 +83,10 @@
         19 => 'Che cosa mi dà energia, piacere, successo?- Costruisco qualcosa di nuovo?- Come nutro le mie relazioni?',
         20 => 'Che cosa si sta risvegliando in me?- Che cosa rappresenterebbe per me una crescita personale e professionale?- Che cosa stiamo creando insieme?',
         21 => 'Qual è la mia realizzazione mentale?- Qual è la mia realizzazione emozionale?- Qual è la mia realizzazione creativa?- Qual è la mia realizzazione materiale? '
-    ]
+    ];
+
 
     ?>
-
 
 
 </head>
@@ -78,7 +122,7 @@
                 <img src="img/img/CARTE%20-%20draft%20(4)/dorso.png" alt="back" class="img">
             </div>
             <div class="card__side card__side--back card__side--back-<?=$i?>">
-                <img src="img/img/CARTE%20-%20draft%20(4)/<?=$random_number_array[$i]?>.png" alt="consulente" class="img">
+                <img src="img/img/CARTE%20-%20draft%20(4)/<?=$random_number_array[$i]?>.png" alt="card" class="img">
             </div>
         </div>
 
@@ -86,7 +130,7 @@
     }
     ?>
 
-    <img src="img/img/CARTE - draft (4)/dorso.png" alt="dorso" class="img__close">
+    <img src="img/img/CARTE - draft (4)/dorso.png" alt="dorso" class="img__close" onclick="">
 
     <div class="details">
 
@@ -142,26 +186,24 @@
     <div class="popup__content">
         <a href="#" class="popup__close">&times;</a>
 
-        <form action="#" class="form">
+        <form action="game.php" method="post" class="form">
             <div class="form__text">
                 Se sei interessato ad approfondire lascia i tuoi dati:
             </div>
             <div class="form__fields">
                 <div class="form__group">
-                    <input type="text" class="form__input" placeholder="Nome" id="name" required>
+                    <input type="text" class="form__input" placeholder="Nome" id="name" required name="nome">
                 </div>
                 <div class="form__group">
-                    <input type="text" class="form__input" placeholder="Cognome" id="surname" required>
+                    <input type="text" class="form__input" placeholder="Cognome" id="surname" required name="cognome">
                 </div>
                 <div class="form__group">
-                    <input type="email" class="form__input" placeholder="Email" id="email" required>
+                    <input type="email" class="form__input" placeholder="Email" id="email" required name="email">
                 </div>
-                <text class="form__group">
-                    <textarea class="form__input" placeholder="Note" id="note" required></textarea>
-                </text>
+                <input type="submit" name="invia_mail" value="Invia" id="submit" style="display: none"/>
             </div>
             <div class="form__group form__btn">
-                <button class="btn_ btn_-yellow">SUBMIT</button>
+                <button class="btn_ btn_-yellow" onclick="$('#submit').trigger('click')">SUBMIT</button>
             </div>
         </form>
 
@@ -171,6 +213,67 @@
 
 </body>
 <script>
+
+
+    <?php
+
+    /*
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require './vendor/autoload.php';
+
+
+
+    //print_r($_POST);
+
+    //print_r($mail);
+
+
+
+    function invioMail() {
+        $mail = new PHPMailer(true);
+
+        $nome = $_POST['nome'];
+        $cognome = $_POST['cognome'];
+        $email = $_POST['email'];
+        $note = $_POST['note'];
+
+        print_r($nome . ' ' . $cognome . ' ' . $email . ' ' . $note . "<br>");
+
+
+        try {
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = "provaperinviomail@gmail.com";
+            $mail->Password = 'matteo1999';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port = 465;
+
+            $mail->setFrom("matteo.corrini@gmail.com", "Prova");
+            $mail->addAddress("matteo.maiocchi99@gmail.com");
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Nuovo contatto da HappyCards';
+            $mail->Body = "<b>$nome $cognome</b>, $email: <br>$note";
+
+            $mail->send();
+            echo 'Messaggio inviato';
+
+        } catch (Exception $err) {
+            echo "Errore. Il messaggio non può essere inviato.<br> Mailer error:{$mail->ErrorInfo} <br>";
+            //print_r($mail);
+        }
+    }
+
+*/
+
+
+    ?>
 
 
     $(document).ready(function (){

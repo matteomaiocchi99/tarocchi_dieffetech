@@ -11,3 +11,4 @@ sass
 scss
 composer.lock
 sender.php
+vendor

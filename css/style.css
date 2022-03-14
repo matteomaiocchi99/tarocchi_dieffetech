@@ -184,6 +184,8 @@ body {
 
     margin-top: -1rem;
     padding-left: 3rem;
+    align-self: center;
+    padding-right: 16rem;
     /*z-index: -1;*/
 }
 
@@ -191,7 +193,7 @@ body {
     position: absolute;
     bottom: 0;
     display: none;
-    text-align: center;
+    align-self: center;
     margin-bottom: 3rem;
 }
 
@@ -219,6 +221,11 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
+}
+@media only screen and (max-width: 48em) {
+    .description {
+        width: 95%;
+    }
 }
 
 
@@ -281,7 +288,7 @@ body {
 
 @media only screen and (max-width: 48em) {
     .container {
-        width: 120%;
+        width: 96%;
         margin-left: .3rem;
         grid-template-rows: repeat(8, 40vh);
         grid-template-columns: repeat(3, 1fr);
@@ -292,15 +299,16 @@ body {
     position: relative;
     background-color: white;
     height: 95vh;
+    width: 100vw;
     /*padding: 1rem 8rem;*/
     grid-row: 1 / -1;
-    grid-column: 4 / 7;
+    grid-column: 1 / -1;
     visibility: hidden;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
 }
-@media only screen and (max-width: 90em) {
+/*@media only screen and (max-width: 90em) {
     .details {
         grid-column: 3 / -1;
         margin-left: 5rem;
@@ -319,7 +327,7 @@ body {
         grid-column: 1 / 5;
     }
 }
-
+*/
 
 .row {
     display: flex;
@@ -681,6 +689,9 @@ body {
     margin-right: -5rem;
     font-size: 1.8rem;
     display: none;
+    align-self: center;
+    width: max-content;
+    max-width: 60%;
 }
 
 .button, .button:link, .button:visited {
@@ -806,6 +817,7 @@ body {
 }
 
 .form__text {
+    width: 70%;
     color: #707070;
     font-size: 1.6rem;
     font-family: Arial;

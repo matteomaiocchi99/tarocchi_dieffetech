@@ -136,10 +136,10 @@
 
     <img src="img/CARTE%20-%20draft%20(1)/1.png" alt="dorso" class="img__close" onclick="">
 
-    <a href="#" class="popup__close" onclick="$('.img__close').trigger('click')" style="top: -2rem; right: 2rem; display: none">&times;</a>
+
 
     <div class="details">
-
+        <a href="#" class="popup__close" onclick="$('.img__close').trigger('click')" style="top: -2rem; left: 2rem; display: none">&times;</a>
         <?php
         for ($i=0; $i<22; $i++){
             ?>
@@ -192,7 +192,7 @@
     <div class="popup__content">
         <a href="#" class="popup__close">&times;</a>
 
-        <form action="game.php" method="post" class="form">
+        <form action="game.php" method="POST" class="form">
             <div class="form__text">
                 Se sei interessato ad approfondire lascia i tuoi dati:
             </div>
@@ -207,7 +207,7 @@
                     <input type="email" class="form__input" placeholder="Email" id="email" required name="email">
                 </div>
                 <input type="submit" name="invia_mail" value="Invia" id="submit" style="display: none"/>
-                <!--<div id="captcha" class="g-recaptcha" data-sitekey="6Lcap88eAAAAAMUNr8UKxdegexK4OcdNVQG_EKvC"></div>-->
+                <div id="captcha" class="g-recaptcha" data-sitekey="6Lcap88eAAAAAMUNr8UKxdegexK4OcdNVQG_EKvC"></div>
             </div>
             <div class="form__group form__btn" >
                 <button class="btn_ btn_-yellow" onclick="$('#submit').trigger('click')">SUBMIT</button>
@@ -220,6 +220,7 @@
 
 </body>
 <script>
+
 /*
     var verifyCallback = function(response) {
         alert(response);
@@ -237,6 +238,14 @@
 
 
     $(document).ready(function (){
+
+        $(".form").on('submit', function (event){
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha==="") {
+                event.preventDefault();
+                alert("Please check reCaptcha");
+            }
+        })
 
         $(".box_conferma").fadeOut(3000)
 
@@ -256,64 +265,71 @@
             $(".card__side--front").css('visibility', 'visible')
             $(".text").css('display', 'none')
             $(".img__close").css('visibility', 'hidden')
-            setTimeout(function(){ $(".card__shift").css('transform', 'translateX(-55%)')}, 1)
             $(".description").css('display', 'flex')
 
 
             if (window.innerWidth<768){
-                $(".img").css('max-height', '40vh')
+                //$(".img").css('max-height', '40vh')
+                //$(".card__shift").css('transform', 'translateY(-55%)')
+                $(".container").css('grid-template-columns', 'repeat(3, 1fr)')
+                $(".container").css('grid-template-row', 'repeat(8, 40vh)')
+                $(".img").css('transform', 'scale(1)')
+                $(".card").css('transform', 'scale(1)')
+                $(".card__shift").css('transform','translate(0, -55%)')
 
-                setTimeout(function(){ $(".card--0").css('grid-column', '1 / 2')
-                    $(".card--0").css('grid-row', '2 / 3')}, delay)
-                setTimeout(function(){ $(".card--1").css('grid-column', '1 / 2')
-                    $(".card--1").css('grid-row', '3 / 4')}, delay)
-                setTimeout(function(){ $(".card--2").css('grid-column', '1 / 2')
-                    $(".card--2").css('grid-row', '4 / 5')}, delay)
-                setTimeout(function(){ $(".card--3").css('grid-column', '1 / 2')
-                    $(".card--3").css('grid-row', '5 / 6')}, delay)
-                setTimeout(function(){ $(".card--4").css('grid-column', '1 / 2')
-                    $(".card--4").css('grid-row', '6 / 7')}, delay)
-                setTimeout(function(){ $(".card--5").css('grid-column', '1 / 2')
-                    $(".card--5").css('grid-row', '7 / 8')}, delay)
-                setTimeout(function(){ $(".card--6").css('grid-column', '1 / 2')
-                    $(".card--6").css('grid-row', '8 / 9')}, delay)
+                $(".card--0").css('grid-column', '1 / 2')
+                $(".card--0").css('grid-row', '2 / 3')
+                $(".card--1").css('grid-column', '1 / 2')
+                $(".card--1").css('grid-row', '3 / 4')
+                $(".card--2").css('grid-column', '1 / 2')
+                $(".card--2").css('grid-row', '4 / 5')
+                $(".card--3").css('grid-column', '1 / 2')
+                $(".card--3").css('grid-row', '5 / 6')
+                $(".card--4").css('grid-column', '1 / 2')
+                $(".card--4").css('grid-row', '6 / 7')
+                $(".card--5").css('grid-column', '1 / 2')
+                $(".card--5").css('grid-row', '7 / 8')
+                $(".card--6").css('grid-column', '1 / 2')
+                $(".card--6").css('grid-row', '8 / 9')
 
-                setTimeout(function(){ $(".card--7").css('grid-column', '2 / 3')
-                    $(".card--7").css('grid-row', '2 / 3')}, delay)
-                setTimeout(function(){ $(".card--8").css('grid-column', '2 / 3')
-                    $(".card--8").css('grid-row', '3 / 4')}, delay)
-                setTimeout(function(){ $(".card--9").css('grid-column', '2 / 3')
-                    $(".card--9").css('grid-row', '4 / 5')}, delay)
-                setTimeout(function(){ $(".card--10").css('grid-column', '2 / 3')
-                    $(".card--10").css('grid-row', '5 / 6')}, delay)
-                setTimeout(function(){ $(".card--11").css('grid-column', '2 / 3')
-                    $(".card--11").css('grid-row', '6 / 7')}, delay)
-                setTimeout(function(){ $(".card--12").css('grid-column', '2 / 3')
-                    $(".card--12").css('grid-row', '7 / 8')}, delay)
-                setTimeout(function(){ $(".card--13").css('grid-column', '2 / 3')
-                    $(".card--13").css('grid-row', '8 / 9')}, delay)
+                $(".card--7").css('grid-column', '2 / 3')
+                $(".card--7").css('grid-row', '2 / 3')
+                $(".card--8").css('grid-column', '2 / 3')
+                $(".card--8").css('grid-row', '3 / 4')
+                $(".card--9").css('grid-column', '2 / 3')
+                $(".card--9").css('grid-row', '4 / 5')
+                $(".card--10").css('grid-column', '2 / 3')
+                $(".card--10").css('grid-row', '5 / 6')
+                $(".card--11").css('grid-column', '2 / 3')
+                $(".card--11").css('grid-row', '6 / 7')
+                $(".card--12").css('grid-column', '2 / 3')
+                $(".card--12").css('grid-row', '7 / 8')
+                $(".card--13").css('grid-column', '2 / 3')
+                $(".card--13").css('grid-row', '8 / 9')
 
-                setTimeout(function(){ $(".card--14").css('grid-column', '3 / 4')
-                    $(".card--14").css('grid-row', '1 / 2')}, delay)
-                setTimeout(function(){ $(".card--15").css('grid-column', '3 / 4')
-                    $(".card--15").css('grid-row', '2 / 3')}, delay)
-                setTimeout(function(){ $(".card--16").css('grid-column', '3 / 4')
-                    $(".card--16").css('grid-row', '3 / 4')}, delay)
-                setTimeout(function(){ $(".card--17").css('grid-column', '3 / 4')
-                    $(".card--17").css('grid-row', '4 / 5')}, delay)
-                setTimeout(function(){ $(".card--18").css('grid-column', '3 / 4')
-                    $(".card--18").css('grid-row', '5 / 6')}, delay)
-                setTimeout(function(){ $(".card--19").css('grid-column', '3 / 4')
-                    $(".card--19").css('grid-row', '6 / 7')}, delay)
-                setTimeout(function(){ $(".card--20").css('grid-column', '3 / 4')
-                    $(".card--20").css('grid-row', '7 / 8')}, delay)
-                setTimeout(function(){ $(".card--21").css('grid-column', '3 / 4')
-                    $(".card--21").css('grid-row', '8 / 9')}, delay)
+                $(".card--14").css('grid-column', '3 / 4')
+                $(".card--14").css('grid-row', '1 / 2')
+                $(".card--15").css('grid-column', '3 / 4')
+                $(".card--15").css('grid-row', '2 / 3')
+                $(".card--16").css('grid-column', '3 / 4')
+                $(".card--16").css('grid-row', '3 / 4')
+                $(".card--17").css('grid-column', '3 / 4')
+                $(".card--17").css('grid-row', '4 / 5')
+                $(".card--18").css('grid-column', '3 / 4')
+                $(".card--18").css('grid-row', '5 / 6')
+                $(".card--19").css('grid-column', '3 / 4')
+                $(".card--19").css('grid-row', '6 / 7')
+                $(".card--20").css('grid-column', '3 / 4')
+                $(".card--20").css('grid-row', '7 / 8')
+                $(".card--21").css('grid-column', '3 / 4')
+                $(".card--21").css('grid-row', '8 / 9')
 
 
             } else {
                 //$(".body").css('overflow','hidden')
                 $(".container").css('grid-template-columns', 'repeat(8, 1fr)')
+                $(".card__shift").css('transform', 'translateX(-55%)')
+
                 $(".img").css('max-height', '26vh')
                 $(".img").css('max-width', '18.2vh')
                 $(".card").css('max-height', '26vh')
@@ -398,7 +414,7 @@
                 setTimeout(function(){
                     $(".container").css('grid-template-columns', 'repeat(4, 1fr)')
                     $(".container").css('grid-template-row', 'repeat(3, 1fr)')
-                    $(".container").css('width', '100%')
+                    //$(".container").css('width', '100%')
                     $(".img").css('transform', 'scale(1.1)')
                     $(".card").css('transform', 'scale(1.1)')
                 }, delay)
@@ -413,13 +429,13 @@
             $(".card__side--back-0").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-0").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--0").css('display', 'inline-block')}, delay)
+                $(".card--0").css('display', 'inline-block')
+                $(".card--0").css('grid-row', '2 / 3')}, delay)
+
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--0").css('grid-column', '3 / 5')
-                    $(".card--0").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--0").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--0").css('grid-column', '5 / 7')
-                    $(".card--0").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--0").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -429,13 +445,12 @@
             $(".card__side--back-1").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-1").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--1").css('display', 'inline-block')}, delay)
+                $(".card--1").css('display', 'inline-block')
+                $(".card--1").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--1").css('grid-column', '2 / 3')
-                    $(".card--1").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--1").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--1").css('grid-column', '5 / 7')
-                    $(".card--1").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--1").css('grid-column', '5 / 7')}, delay)
 
             }
         })
@@ -446,13 +461,12 @@
             $(".card__side--back-2").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-2").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--2").css('display', 'inline-block')}, delay)
+                $(".card--2").css('display', 'inline-block')
+                $(".card--2").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--2").css('grid-column', '2 / 3')
-                    $(".card--2").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--2").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--2").css('grid-column', '5 / 7')
-                    $(".card--2").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--2").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -461,13 +475,12 @@
             $(".card__side--back-3").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-3").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--3").css('display', 'inline-block')}, delay)
+                $(".card--3").css('display', 'inline-block')
+                $(".card--3").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--3").css('grid-column', '2 / 3')
-                    $(".card--3").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--3").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--3").css('grid-column', '5 / 7')
-                    $(".card--3").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--3").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -476,13 +489,12 @@
             $(".card__side--back-4").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-4").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--4").css('display', 'inline-block')}, delay)
+                $(".card--4").css('display', 'inline-block')
+                $(".card--4").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--4").css('grid-column', '2 / 3')
-                    $(".card--4").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--4").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--4").css('grid-column', '5 / 7')
-                    $(".card--4").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--4").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -491,13 +503,12 @@
             $(".card__side--back-5").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-5").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--5").css('display', 'inline-block')}, delay)
+                $(".card--5").css('display', 'inline-block')
+                $(".card--5").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--5").css('grid-column', '2 / 3')
-                    $(".card--5").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--5").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--5").css('grid-column', '5 / 7')
-                    $(".card--5").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--5").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -506,13 +517,12 @@
             $(".card__side--back-6").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-6").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--6").css('display', 'inline-block')}, delay)
+                $(".card--6").css('display', 'inline-block')
+                $(".card--6").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--6").css('grid-column', '2 / 3')
-                    $(".card--6").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--6").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--6").css('grid-column', '5 / 7')
-                    $(".card--6").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--6").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -523,13 +533,12 @@
             $(".card__side--back-7").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-7").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--7").css('display', 'inline-block')}, delay)
+                $(".card--7").css('display', 'inline-block')
+                $(".card--7").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--7").css('grid-column', '2 / 3')
-                    $(".card--7").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--7").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--7").css('grid-column', '5 / 7')
-                    $(".card--7").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--7").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -539,13 +548,12 @@
             $(".card__side--back-8").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-8").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--8").css('display', 'inline-block')}, delay)
+                $(".card--8").css('display', 'inline-block')
+                $(".card--8").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--8").css('grid-column', '2 / 3')
-                    $(".card--8").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--8").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--8").css('grid-column', '5 / 7')
-                    $(".card--8").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--8").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -554,13 +562,12 @@
             $(".card__side--back-9").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-9").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--9").css('display', 'inline-block')}, delay)
+                $(".card--9").css('display', 'inline-block')
+                $(".card--9").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--9").css('grid-column', '2 / 3')
-                    $(".card--9").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--9").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--9").css('grid-column', '5 / 7')
-                    $(".card--9").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--9").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -569,13 +576,12 @@
             $(".card__side--back-10").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-10").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--10").css('display', 'inline-block')}, delay)
+                $(".card--10").css('display', 'inline-block')
+                $(".card--10").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--10").css('grid-column', '2 / 3')
-                    $(".card--10").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--10").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--10").css('grid-column', '5 / 7')
-                    $(".card--10").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--10").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -584,13 +590,12 @@
             $(".card__side--back-11").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-11").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--11").css('display', 'inline-block')}, delay)
+                $(".card--11").css('display', 'inline-block')
+                $(".card--11").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--11").css('grid-column', '2 / 3')
-                    $(".card--11").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--11").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--11").css('grid-column', '5 / 7')
-                    $(".card--11").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--11").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -599,13 +604,12 @@
             $(".card__side--back-12").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-12").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--12").css('display', 'inline-block')}, delay)
+                $(".card--12").css('display', 'inline-block')
+                $(".card--12").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--12").css('grid-column', '2 / 3')
-                    $(".card--12").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--12").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--12").css('grid-column', '5 / 7')
-                    $(".card--12").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--12").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -614,13 +618,12 @@
             $(".card__side--back-13").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-13").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--13").css('display', 'inline-block')}, delay)
+                $(".card--13").css('display', 'inline-block')
+                $(".card--13").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--13").css('grid-column', '2 / 3')
-                    $(".card--13").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--13").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--13").css('grid-column', '5 / 7')
-                    $(".card--13").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--13").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -631,13 +634,12 @@
             $(".card__side--back-14").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-14").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--14").css('display', 'inline-block')}, delay)
+                $(".card--14").css('display', 'inline-block')
+                $(".card--14").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--14").css('grid-column', '2 / 3')
-                    $(".card--14").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--14").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--14").css('grid-column', '5 / 7')
-                    $(".card--14").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--14").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -647,13 +649,12 @@
             $(".card__side--back-15").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-15").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--15").css('display', 'inline-block')}, delay)
+                $(".card--15").css('display', 'inline-block')
+                $(".card--15").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--15").css('grid-column', '2 / 3')
-                    $(".card--15").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--15").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--15").css('grid-column', '5 / 7')
-                    $(".card--15").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--15").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -663,13 +664,12 @@
             $(".card__side--back-16").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-16").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--16").css('display', 'inline-block')}, delay)
+                $(".card--16").css('display', 'inline-block')
+                $(".card--16").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--16").css('grid-column', '2 / 3')
-                    $(".card--16").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--16").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--16").css('grid-column', '5 / 7')
-                    $(".card--16").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--16").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -679,13 +679,12 @@
             $(".card__side--back-17").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-17").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--17").css('display', 'inline-block')}, delay)
+                $(".card--17").css('display', 'inline-block')
+                $(".card--17").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--17").css('grid-column', '2 / 3')
-                    $(".card--17").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--17").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--17").css('grid-column', '5 / 7')
-                    $(".card--17").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--17").css('grid-column', '5 / 7')}, delay)
             }
         })
 
@@ -695,13 +694,12 @@
             $(".card__side--back-18").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-18").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--18").css('display', 'inline-block')}, delay)
+                $(".card--18").css('display', 'inline-block')
+                $(".card--18").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--18").css('grid-column', '2 / 3')
-                    $(".card--18").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--18").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--18").css('grid-column', '5 / 7')
-                    $(".card--18").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--18").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -710,13 +708,12 @@
             $(".card__side--back-19").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-19").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--19").css('display', 'inline-block')}, delay)
+                $(".card--19").css('display', 'inline-block')
+                $(".card--19").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--19").css('grid-column', '2 / 3')
-                    $(".card--19").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--19").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--19").css('grid-column', '5 / 7')
-                    $(".card--19").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--19").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -725,13 +722,12 @@
             $(".card__side--back-20").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-20").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--20").css('display', 'inline-block')}, delay)
+                $(".card--20").css('display', 'inline-block')
+                $(".card--20").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--20").css('grid-column', '2 / 3')
-                    $(".card--20").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--20").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function(){ $(".card--20").css('grid-column', '5 / 7')
-                    $(".card--20").css('grid-row', '2 / 3')}, delay)
+                setTimeout(function(){ $(".card--20").css('grid-column', '5 / 7')}, delay)
             }
         })
         //////////////
@@ -740,14 +736,12 @@
             $(".card__side--back-21").css('transform', 'rotateY(0deg)')
             setTimeout(function(){$(".text-21").css('display', 'block')
                 $(".card").css('display', 'none')
-                $(".card--21").css('display', 'inline-block')}, delay)
+                $(".card--21").css('display', 'inline-block')
+                $(".card--21").css('grid-row', '2 / 3')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--21").css('grid-column', '2 / 3')
-                    $(".card--21").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--21").css('grid-column', '3 / 5')}, delay)
             } else {
-                setTimeout(function () { $(".card--21").css('grid-column', '5 / 7')
-                    $(".card--21").css('grid-row', '2 / 3')
-                }, delay)
+                setTimeout(function () { $(".card--21").css('grid-column', '5 / 7')}, delay)
             }
         })
     });

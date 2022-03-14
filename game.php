@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
     <title>Happy Cards</title>
     <link rel="icon" href="img/logo_plus.png" />
 
@@ -220,22 +221,6 @@
 
 </body>
 <script>
-
-/*
-    var verifyCallback = function(response) {
-        alert(response);
-    };
-
-    var onloadCallback = function() {
-        
-        grecaptcha.render('captcha', {
-            'sitekey' : '6Lcap88eAAAAAMUNr8UKxdegexK4OcdNVQG_EKvC',
-            'callback' : verifyCallback,
-            'theme' : 'dark'
-        });
-    };
-*/
-
 
     $(document).ready(function (){
 

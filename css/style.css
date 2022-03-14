@@ -16,7 +16,7 @@ body {
     width: 10rem;
     height: 10rem;
     transform: translateY(-8%);
-    padding-right: .4rem;
+
 }
 
 .logo__small {
@@ -52,6 +52,20 @@ body {
     align-items: center;
 }
 
+.dieffetech {
+    font-family: Arial;
+    font-size: .8rem;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.linksito {
+    text-decoration: none;
+    color: #10a6ff;
+}
+
 .title {
     font-size: 1.8rem;
     color: #e1942f;
@@ -62,7 +76,7 @@ body {
 }
 
 .title__smallest {
-    display: inline-block;
+    display: inline;
     font-size: 1.2rem;
     font-weight: 700;
     padding: 0;
@@ -70,7 +84,7 @@ body {
 
 .paragraph {
     font-size: 1.4rem;
-    color: black !important;
+    color: black ;
 }
 
 .paragraph__bold {
@@ -79,7 +93,7 @@ body {
 
 .paragraph-read {
     display: inline;
-    font-size: 1.2rem !important;
+    font-size: 1.2rem ;
 }
 
 .buttonEimg {
@@ -156,6 +170,14 @@ body {
     z-index: -1;
 }
 
+@media only screen and (max-width: 79em) {
+    .circles-index {
+        max-width: 10rem;
+        max-height: 10rem;
+        transform: translateY(4rem);
+    }
+    }
+
 .circles-details {
     width: 8rem;
     height: 8rem;
@@ -166,9 +188,17 @@ body {
 }
 
 .info {
+    position: absolute;
+    bottom: 0;
     display: none;
     text-align: center;
-    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 48em) {
+    .info {
+        margin-bottom: 1rem;
+    }
 }
 
 .read {
@@ -191,8 +221,14 @@ body {
     justify-content: center;
 }
 
+
 .testo {
     width: 60%;
+}
+@media only screen and (max-width: 48em) {
+    .testo {
+        width: 100%;
+    }
 }
 
 .body {
@@ -225,7 +261,8 @@ body {
 
 @media only screen and (max-width: 48em) {
     .img {
-        max-height: 40vh;
+        max-height: 35vh;
+        max-width: 24.5vh;
     }
 }
 
@@ -244,34 +281,45 @@ body {
 
 @media only screen and (max-width: 48em) {
     .container {
+        width: 120%;
+        margin-left: .3rem;
         grid-template-rows: repeat(8, 40vh);
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 .details {
+    position: relative;
     background-color: white;
+    height: 95vh;
     /*padding: 1rem 8rem;*/
-    grid-row: 1 / 4;
+    grid-row: 1 / -1;
     grid-column: 4 / 7;
     visibility: hidden;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
 }
-
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 90em) {
     .details {
-        grid-row: 2 / -1;
-        grid-column: 1 / -1;
-        padding: 3rem 3rem;
+        grid-column: 3 / -1;
+        margin-left: 5rem;
     }
 }
 
-ul {
-    list-style-type: circle;
-    list-style-image: linear-gradient(to right, #e1942f, #e1942f);
+@media only screen and (max-width: 64em) {
+    .details {
+        grid-column: 2 / 8;
+        margin-left: 8rem;
+    }
 }
+
+@media only screen and (max-width: 48em) {
+    .details {
+        grid-column: 1 / 5;
+    }
+}
+
 
 .row {
     display: flex;
@@ -291,9 +339,21 @@ ul {
     perspective: 150rem;
     position: relative;
 }
+@media only screen and (max-width: 48em) {
+    .card {
+        max-height: 35vh;
+        max-width: 24.5vh;
+    }
+}
 
 .card__shift {
     transform: translateX(-55%);
+}
+
+@media only screen and (max-width: 48em) {
+    .card__shift {
+        transform: translate(0, -55%);
+    }
 }
 
 .card--0 {
@@ -594,6 +654,12 @@ ul {
     max-width: 18.2vh;
     box-shadow: 0 1rem 2rem rgba(1, 1, 1, 0.7);
 }
+@media only screen and (max-width: 48em) {
+    .img__close {
+        grid-column: 2 / -1;
+        transform: translate(-20%, 30%);
+    }
+}
 
 @media only screen and (max-width: 48em) {
     .btn__close {
@@ -610,8 +676,8 @@ ul {
 
 .text {
     text-align: left;
-    width: 100%;
-    margin-left: -5rem;
+    width: 85%;
+    margin-left: 0rem;
     margin-right: -5rem;
     font-size: 1.8rem;
     display: none;
@@ -797,4 +863,25 @@ ul {
 
 .form__btn {
     text-align: center;
+}
+
+.g-recaptcha {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+.box_conferma {
+    background-color: #ebb672;
+    max-width: max-content;
+    padding: 4rem 2rem;
+    border: 3px solid #e1942f;
+    border-radius: 10px;
+    font-size: 3rem;
+    z-index: 99999;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

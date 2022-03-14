@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Happy Cards</title>
+    <link rel="icon" href="img/logo_plus.png" />
 
     <link rel="stylesheet" href="css/style.css?v=<?= time() ?>">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <?php
 
@@ -31,13 +33,15 @@
             $mail->isSMTP();
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = "provaperinviomail@gmail.com";
-            $mail->Password   = 'matteo1999';
+            $mail->Username   = "happyworkcard@gmail.com";
+            $mail->Password   = 'Happy2022';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 465;
 
-            $mail->setFrom("matteo.corrini@gmail.com", "Prova");
-            $mail->addAddress("matteo.maiocchi99@gmail.com");
+            $mail->setFrom("happyworkcard@gmail.com", "HappyCard");
+            $mail->addAddress("happyworkcard@gmail.com");
+            $mail->addCC('francesco.desiderio@dieffe.tech');
+            //$mail->addCC('matteo.maiocchi99@gmail.com');
             $mail->SMTPDebug = false;
             $mail->do_debug = 0;
             $mail->isHTML(true);
@@ -46,7 +50,9 @@
 
             $mail->send();
 
-            echo "<script> alert('Messaggio inviato correttamente') </script>";
+            ?>
+            <div class='box_conferma'>Mail inviata con successo</div>
+    <?php
 
         } catch (Exception $err) {
             echo "Errore. Il messaggio non può essere inviato.<br> Mailer error:{$mail->ErrorInfo} <br>";
@@ -109,9 +115,7 @@
 </div>
 
 <div class="container">
-
-
-
+    
     <!--RIGA 1-->
 
     <?php
@@ -119,10 +123,10 @@
 
         <div class="card card--<?=$i?> <?=($i<14) ? 'card__shift' : ''?>">
             <div class="card__side card__side--front card__side--front-<?=$i?>">
-                <img src="img/img/CARTE%20-%20draft%20(4)/dorso.png" alt="back" class="img">
+                <img src="img/CARTE%20-%20draft%20(1)/1.png" alt="back" class="img">
             </div>
             <div class="card__side card__side--back card__side--back-<?=$i?>">
-                <img src="img/img/CARTE%20-%20draft%20(4)/<?=$random_number_array[$i]?>.png" alt="card" class="img">
+                <img src="img/CARTE%20-%20draft%20(1)/<?=$random_number_array[$i]+2?>.png" alt="card" class="img">
             </div>
         </div>
 
@@ -130,18 +134,18 @@
     }
     ?>
 
-    <img src="img/img/CARTE - draft (4)/dorso.png" alt="dorso" class="img__close" onclick="">
+    <img src="img/CARTE%20-%20draft%20(1)/1.png" alt="dorso" class="img__close" onclick="">
+
+    <a href="#" class="popup__close" onclick="$('.img__close').trigger('click')" style="top: -2rem; right: 2rem; display: none">&times;</a>
 
     <div class="details">
-
-        <a href="#" class="popup__close" onclick="$('.img__close').trigger('click')" style="top: -2rem; right: 2rem">&times;</a>
 
         <?php
         for ($i=0; $i<22; $i++){
             ?>
 
             <div class="text text-<?=$i?>">
-                <div class="list-a">
+                <div>
                     <?php
                     $n = $random_number_array[$i];
 
@@ -169,18 +173,20 @@
         }
         ?>
 
+
+        <div class="info">
+            <div class="title title__small" style="display: inline; margin-right: 3rem">
+                <b>Se vuoi approfondire clicca qui</b>
+            </div>
+            <button class="btn_ btn_-yellow" onclick="window.location.href='#popup';">
+                INFO
+            </button>
+        </div>
+
         <img src="img/three_circles.svg" alt="circles" class="circles-details">
     </div>
 </div>
 
-<div class="info">
-    <div class="title title__small" style="display: inline; margin-right: 3rem">
-        <b>Se vuoi approfondire clicca qui</b>
-    </div>
-    <button class="btn_ btn_-yellow" onclick="window.location.href='#popup';">
-        INFO
-    </button>
-</div>
 
 <div class="popup" id="popup">
     <div class="popup__content">
@@ -201,8 +207,9 @@
                     <input type="email" class="form__input" placeholder="Email" id="email" required name="email">
                 </div>
                 <input type="submit" name="invia_mail" value="Invia" id="submit" style="display: none"/>
+                <!--<div id="captcha" class="g-recaptcha" data-sitekey="6Lcap88eAAAAAMUNr8UKxdegexK4OcdNVQG_EKvC"></div>-->
             </div>
-            <div class="form__group form__btn">
+            <div class="form__group form__btn" >
                 <button class="btn_ btn_-yellow" onclick="$('#submit').trigger('click')">SUBMIT</button>
             </div>
         </form>
@@ -213,70 +220,25 @@
 
 </body>
 <script>
+/*
+    var verifyCallback = function(response) {
+        alert(response);
+    };
 
-
-    <?php
-
-    /*
-
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-
-    require './vendor/autoload.php';
-
-
-
-    //print_r($_POST);
-
-    //print_r($mail);
-
-
-
-    function invioMail() {
-        $mail = new PHPMailer(true);
-
-        $nome = $_POST['nome'];
-        $cognome = $_POST['cognome'];
-        $email = $_POST['email'];
-        $note = $_POST['note'];
-
-        print_r($nome . ' ' . $cognome . ' ' . $email . ' ' . $note . "<br>");
-
-
-        try {
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = "provaperinviomail@gmail.com";
-            $mail->Password = 'matteo1999';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port = 465;
-
-            $mail->setFrom("matteo.corrini@gmail.com", "Prova");
-            $mail->addAddress("matteo.maiocchi99@gmail.com");
-
-            $mail->isHTML(true);
-            $mail->Subject = 'Nuovo contatto da HappyCards';
-            $mail->Body = "<b>$nome $cognome</b>, $email: <br>$note";
-
-            $mail->send();
-            echo 'Messaggio inviato';
-
-        } catch (Exception $err) {
-            echo "Errore. Il messaggio non può essere inviato.<br> Mailer error:{$mail->ErrorInfo} <br>";
-            //print_r($mail);
-        }
-    }
-
+    var onloadCallback = function() {
+        
+        grecaptcha.render('captcha', {
+            'sitekey' : '6Lcap88eAAAAAMUNr8UKxdegexK4OcdNVQG_EKvC',
+            'callback' : verifyCallback,
+            'theme' : 'dark'
+        });
+    };
 */
 
 
-    ?>
-
-
     $(document).ready(function (){
+
+        $(".box_conferma").fadeOut(3000)
 
         var delay = 800 //delay in ms
         var n = 1;
@@ -427,13 +389,18 @@
             if (window.innerWidth>768){
                 //$(".body").css('overflow','scroll')
                 setTimeout(function(){
-                    $(".container").css('grid-template-columns', '1fr 2fr 2 fr 1fr')
+                    $(".container").css('grid-template-columns', 'repeat(8, 1fr)')
                     $(".img").css('transform', 'scale(1.3)')
                     $(".card").css('transform', 'scale(1.3) translate(30%, 20%)')
-                    /*$(".img").css('max-height', '70vh')
-                    $(".img").css('max-width', '49.35vh')
-                    $(".card").css('max-height', '70vh')
-                    $(".card").css('max-width', '49.35vh')*/
+
+                }, delay)
+            } else {
+                setTimeout(function(){
+                    $(".container").css('grid-template-columns', 'repeat(4, 1fr)')
+                    $(".container").css('grid-template-row', 'repeat(3, 1fr)')
+                    $(".container").css('width', '100%')
+                    $(".img").css('transform', 'scale(1.1)')
+                    $(".card").css('transform', 'scale(1.1)')
                 }, delay)
             }
         })
@@ -448,8 +415,8 @@
                 $(".card").css('display', 'none')
                 $(".card--0").css('display', 'inline-block')}, delay)
             if (window.innerWidth<768){
-                setTimeout(function(){ $(".card--0").css('grid-column', '2 / 3')
-                    $(".card--0").css('grid-row', '1 / 2')}, delay)
+                setTimeout(function(){ $(".card--0").css('grid-column', '3 / 5')
+                    $(".card--0").css('grid-row', '2 / 3')}, delay)
             } else {
                 setTimeout(function(){ $(".card--0").css('grid-column', '5 / 7')
                     $(".card--0").css('grid-row', '2 / 3')}, delay)

@@ -10,6 +10,13 @@
 <body>
 <div class="index">
 
+    <div class="dieffetech">
+        <b>Powered by
+        <a href="https://www.dieffe.tech/" target="_blank" class="linksito">www.dieffe.tech</a>
+        – La Software House della FELICITÀ
+        </b>
+    </div>
+
     <img src="img/three_circles.svg" alt="circles" class="circles-index">
 
     <div class="introEimg">
@@ -51,7 +58,7 @@
         </div>
         <div class="images">
             <img src="img/dots.svg" alt="dots" class="dots">
-            <img src="img/img/CARTE%20-%20draft%20(4)/dorso.png" alt="dorso" class="dorso">
+            <img src="img/CARTE%20-%20draft%20(1)/1.png" alt="dorso" class="dorso">
         </div>
     </div>
 </div>

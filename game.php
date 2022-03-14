@@ -176,10 +176,10 @@
 
 
         <div class="info">
-            <div class="title title__small" style="display: inline; margin-right: 3rem">
+            <div class="title title__small info__text">
                 <b>Se vuoi approfondire clicca qui</b>
             </div>
-            <button class="btn_ btn_-yellow" onclick="window.location.href='#popup';">
+            <button class="btn_ btn_-yellow btn_-info" onclick="window.location.href='#popup';">
                 INFO
             </button>
         </div>
@@ -257,10 +257,9 @@
                 //$(".img").css('max-height', '40vh')
                 //$(".card__shift").css('transform', 'translateY(-55%)')
                 $(".container").css('grid-template-columns', 'repeat(3, 1fr)')
-                $(".container").css('grid-template-row', 'repeat(8, 40vh)')
-                $(".img").css('transform', 'scale(1)')
-                $(".card").css('transform', 'scale(1)')
+                $(".container").css('grid-template-rows', 'repeat(8, 40vh)')
                 $(".card__shift").css('transform','translate(0, -55%)')
+
 
                 $(".card--0").css('grid-column', '1 / 2')
                 $(".card--0").css('grid-row', '2 / 3')
@@ -398,10 +397,10 @@
             } else {
                 setTimeout(function(){
                     $(".container").css('grid-template-columns', 'repeat(4, 1fr)')
-                    $(".container").css('grid-template-row', 'repeat(3, 1fr)')
+                    $(".container").css('grid-template-rows', '1fr 1fr 1fr')
                     //$(".container").css('width', '100%')
-                    $(".img").css('transform', 'scale(1.1)')
-                    $(".card").css('transform', 'scale(1.1)')
+
+                    $(".card").css('transform', 'translateY(30%)')
                 }, delay)
             }
         })

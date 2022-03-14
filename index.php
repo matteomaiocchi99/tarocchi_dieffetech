@@ -8,16 +8,16 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
-<body>
-<div class="index">
 
-    <div class="dieffetech">
-        <b>Powered by
+<div class="dieffetech">
+    <b>Powered by
         <a href="https://www.dieffe.tech/" target="_blank" class="linksito">www.dieffe.tech</a>
         – La Software House della FELICITÀ
-        </b>
-    </div>
+    </b>
+</div>
+<body>
 
+<div class="index">
     <img src="img/three_circles.svg" alt="circles" class="circles-index">
 
     <div class="introEimg">

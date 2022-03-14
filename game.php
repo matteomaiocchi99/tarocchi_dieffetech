@@ -208,7 +208,7 @@
                     <input type="email" class="form__input" placeholder="Email" id="email" required name="email">
                 </div>
                 <input type="submit" name="invia_mail" value="Invia" id="submit" style="display: none"/>
-                <div id="captcha" class="g-recaptcha" data-sitekey="6Lcap88eAAAAAMUNr8UKxdegexK4OcdNVQG_EKvC"></div>
+                <div id="captcha" class="g-recaptcha" data-sitekey="6LcSpc8eAAAAAEV7BzmIVaAdFZcBbQ7SmKLY0HXQ"></div>
             </div>
             <div class="form__group form__btn" >
                 <button class="btn_ btn_-yellow" onclick="$('#submit').trigger('click')">SUBMIT</button>

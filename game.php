@@ -18,42 +18,54 @@
 
         $mail = new PHPMailer();
 
-        $nome=$_POST['nome'];
-        $cognome=$_POST['cognome'];
-        $email=$_POST['email'];
+        $nome = $_POST['nome'];
+        $cognome = $_POST['cognome'];
+        $email = $_POST['email'];
+
 
         //print_r($nome.' '.$cognome.' '.$email.' '.$note."<br>");
 
+        if (isset($_POST['privacy'])){
+            try {
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = "happyworkcard@gmail.com";
+                $mail->Password   = 'Happy2022';
 
-        try {
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = "happyworkcard@gmail.com";
-            $mail->Password   = 'Happy2022';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-            $mail->Port       = 465;
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                $mail->Port       = 465;
 
-            $mail->setFrom("happyworkcard@gmail.com", "HappyCard");
-            $mail->addAddress("happyworkcard@gmail.com");
-            $mail->addCC('francesco.desiderio@dieffe.tech');
-            //$mail->addCC('matteo.maiocchi99@gmail.com');
-            $mail->SMTPDebug = false;
-            $mail->do_debug = 0;
-            $mail->isHTML(true);
-            $mail->Subject = 'Nuovo contatto da HappyCards';
-            $mail->Body    = "<b>$nome $cognome</b>, $email";
+                $mail->setFrom("happyworkcard@gmail.com", "HappyCard");
+                $mail->addAddress("happyworkcard@gmail.com");
+                $mail->addCC('francesco.desiderio@dieffe.tech');
+                //$mail->addCC('matteo.maiocchi99@gmail.com');
 
-            $mail->send();
+                $mail->SMTPDebug = false;
+                $mail->do_debug = 0;
+                $mail->isHTML(true);
+                $mail->Subject = 'Nuovo contatto da HappyCards';
+                $mail->Body    = "<b>$nome $cognome</b>, $email";
 
+                $mail->send();
+                unset($_POST['privacy']);
+                ?>
+                <div class='box_conferma'>Mail inviata con successo</div>
+            <?php
+
+            } catch (Exception $err) {
+                echo "Errore. Il messaggio non può essere inviato.<br> Mailer error:{$mail->ErrorInfo} <br>";
+            }
+
+        } else {
             ?>
-            <div class='box_conferma'>Mail inviata con successo</div>
-    <?php
-
-        } catch (Exception $err) {
-            echo "Errore. Il messaggio non può essere inviato.<br> Mailer error:{$mail->ErrorInfo} <br>";
+            <div class='box_conferma' style="background-color: red">
+                La mail non è stata inviata! È necessario accettare l'informativa sulla Privacy</div>
+                <?php
         }
+
+
     }
 
 
@@ -203,10 +215,21 @@
                 <div class="form__group">
                     <input type="email" class="form__input" placeholder="Email" id="email" required name="email">
                 </div>
+                <div class="controlli">
+                    <div id="captcha" class="g-recaptcha" data-sitekey="6LcSpc8eAAAAAEV7BzmIVaAdFZcBbQ7SmKLY0HXQ"></div>
+                    <div class="form__group">
+                        <input type="checkbox" id="privacy" name="privacy" value="privacy" required>
+                        <label for="privacy">
+                            Ho letto e accetto l'<a target="_blank" class="privacy"
+                                                    href="https://www.dieffe.tech/privacy-policy/">Informativa sulla Privacy
+                            </a>
+                        </label>
+                    </div>
+                </div>
                 <input type="submit" name="invia_mail" value="Invia" id="submit" style="display: none"/>
-                <div id="captcha" class="g-recaptcha" data-sitekey="6LcSpc8eAAAAAEV7BzmIVaAdFZcBbQ7SmKLY0HXQ"></div>
+
             </div>
-            <div class="form__group form__btn" >
+            <div class="form__group form__btn">
                 <button class="btn_ btn_-yellow" onclick="$('#submit').trigger('click')">SUBMIT</button>
             </div>
         </form>

@@ -972,3 +972,23 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.privacy {
+    color: #10a6ff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.privacy:hover {
+    text-decoration: underline #10a6ff;
+    cursor: pointer;
+}
+
+.privacy::after, .privacy::before {
+    box-sizing: border-box;
+}
+
+.controlli {
+    display: flex;
+    justify-content: space-between;
+}

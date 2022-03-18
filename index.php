@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>Happy Cards</title>
-    <link rel="stylesheet" href="css/style.css?v=<?= time() ?>">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-
+    <?php
+    require_once 'header.php';
+    ?>
 </head>
 
 <div class="dieffetech">

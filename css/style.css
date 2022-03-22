@@ -992,3 +992,8 @@ body {
     display: flex;
     justify-content: space-between;
 }
+@media only screen and (max-width: 48em) {
+    .controlli {
+        flex-direction: column;
+    }
+}

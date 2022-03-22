@@ -150,6 +150,8 @@
     <div class="details">
         <a href="#" class="popup__close" onclick="$('.img__close').trigger('click')" style="top: -2rem; left: 2rem; display: none">&times;</a>
         <?php
+        $n_row = [];
+
         for ($i=0; $i<22; $i++){
             ?>
 
@@ -161,6 +163,8 @@
                     $parts = explode("-", $text_array[$n]);
 
                     $j = 0;
+
+                    $n_row[$i] = count($parts);
 
                     while ($j<count($parts)) {
                         ?>
@@ -180,6 +184,7 @@
 
             <?php
         }
+
         ?>
 
 
@@ -269,8 +274,9 @@
             $(".card__side--front").css('visibility', 'visible')
             $(".text").css('display', 'none')
             $(".img__close").css('visibility', 'hidden')
+            $(".img__close").css('transform', 'translate(-50%, 55%)')
+            $(".info").css('transform', 'translateY(0)')
             $(".description").css('display', 'flex')
-
 
             if (window.innerWidth<768){
                 //$(".img").css('max-height', '40vh')
@@ -420,6 +426,7 @@
                     //$(".container").css('width', '100%')
 
                     $(".card").css('transform', 'translateY(30%)')
+
                 }, delay)
             }
         })
@@ -435,10 +442,16 @@
                 $(".card--0").css('display', 'inline-block')
                 $(".card--0").css('grid-row', '2 / 3')}, delay)
 
+
             if (window.innerWidth<768){
                 setTimeout(function(){ $(".card--0").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--0").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[0] ?> === 4) {
+                setTimeout(function(){$(".card--0").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
 
@@ -454,7 +467,11 @@
                 setTimeout(function(){ $(".card--1").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--1").css('grid-column', '5 / 7')}, delay)
-
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[1] ?> === 4) {
+                setTimeout(function(){$(".card--1").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
 
@@ -471,6 +488,11 @@
             } else {
                 setTimeout(function(){ $(".card--2").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[2] ?> === 4) {
+                setTimeout(function(){$(".card--2").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-3").click(function (){
@@ -484,6 +506,11 @@
                 setTimeout(function(){ $(".card--3").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--3").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[3] ?> === 4) {
+                setTimeout(function(){$(".card--3").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
         //////////////
@@ -499,6 +526,11 @@
             } else {
                 setTimeout(function(){ $(".card--4").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[4] ?> === 4) {
+                setTimeout(function(){$(".card--4").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-5").click(function (){
@@ -513,6 +545,11 @@
             } else {
                 setTimeout(function(){ $(".card--5").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[5] ?> === 4) {
+                setTimeout(function(){$(".card--5").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-6").click(function (){
@@ -526,6 +563,11 @@
                 setTimeout(function(){ $(".card--6").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--6").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[6] ?> === 4) {
+                setTimeout(function(){$(".card--6").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
 
@@ -543,6 +585,11 @@
             } else {
                 setTimeout(function(){ $(".card--7").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[7] ?> === 4) {
+                setTimeout(function(){$(".card--7").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
 
         //////////////
@@ -558,6 +605,11 @@
             } else {
                 setTimeout(function(){ $(".card--8").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[8] ?> === 4) {
+                setTimeout(function(){$(".card--8").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-9").click(function (){
@@ -571,6 +623,11 @@
                 setTimeout(function(){ $(".card--9").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--9").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[9] ?> === 4) {
+                setTimeout(function(){$(".card--9").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
         //////////////
@@ -586,6 +643,11 @@
             } else {
                 setTimeout(function(){ $(".card--10").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[10] ?> === 4) {
+                setTimeout(function(){$(".card--10").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-11").click(function (){
@@ -599,6 +661,11 @@
                 setTimeout(function(){ $(".card--11").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--11").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[11] ?> === 4) {
+                setTimeout(function(){$(".card--11").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
         //////////////
@@ -614,6 +681,11 @@
             } else {
                 setTimeout(function(){ $(".card--12").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[12] ?> === 4) {
+                setTimeout(function(){$(".card--12").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-13").click(function (){
@@ -627,6 +699,11 @@
                 setTimeout(function(){ $(".card--13").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--13").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[13] ?> === 4) {
+                setTimeout(function () {$(".card--13").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
 
@@ -644,6 +721,11 @@
             } else {
                 setTimeout(function(){ $(".card--14").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[14] ?> === 4) {
+                setTimeout(function(){$(".card--14").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
 
         //////////////
@@ -658,6 +740,11 @@
                 setTimeout(function(){ $(".card--15").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--15").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[15] ?> === 4) {
+                setTimeout(function(){$(".card--15").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
 
@@ -674,6 +761,11 @@
             } else {
                 setTimeout(function(){ $(".card--16").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[16] ?> === 4) {
+                setTimeout(function(){$(".card--16").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
 
         //////////////
@@ -688,6 +780,11 @@
                 setTimeout(function(){ $(".card--17").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--17").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[17] ?> === 4) {
+                setTimeout(function(){$(".card--17").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
 
@@ -704,6 +801,11 @@
             } else {
                 setTimeout(function(){ $(".card--18").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[18] ?> === 4) {
+                setTimeout(function(){$(".card--18").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-19").click(function (){
@@ -717,6 +819,11 @@
                 setTimeout(function(){ $(".card--19").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function(){ $(".card--19").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[19] ?> === 4) {
+                setTimeout(function(){$(".card--19").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
         //////////////
@@ -732,6 +839,11 @@
             } else {
                 setTimeout(function(){ $(".card--20").css('grid-column', '5 / 7')}, delay)
             }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[20] ?> === 4) {
+                setTimeout(function(){$(".card--20").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
+            }
         })
         //////////////
         $(".card__side--front-21").click(function (){
@@ -745,6 +857,11 @@
                 setTimeout(function(){ $(".card--21").css('grid-column', '3 / 5')}, delay)
             } else {
                 setTimeout(function () { $(".card--21").css('grid-column', '5 / 7')}, delay)
+            }
+            if (window.innerWidth<376 && window.innerHeight<851 && <?= $n_row[21] ?> === 4) {
+                setTimeout(function(){$(".card--21").css('transform', 'translateY(80%)')
+                    $(".img__close").css('transform', 'translate(-40%, 110%)')
+                    $(".info").css('transform', 'translateY(130%)')}, delay)
             }
         })
     });
